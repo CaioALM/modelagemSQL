@@ -12,11 +12,11 @@ CREATE TABLE "public.users" (
 
 CREATE TABLE "public.products" (
 	"id" serial,
-	"name" bigint NOT NULL,
+	"name" TEXT NOT NULL,
 	"price" integer NOT NULL,
 	"type" TEXT NOT NULL,
 	"size" TEXT NOT NULL,
-	"mainImage" TEXT NOT NULL,
+	"mainImage" integer NOT NULL,
 	CONSTRAINT "products_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -28,7 +28,7 @@ CREATE TABLE "public.purchases" (
 	"id" serial NOT NULL,
 	"status" TEXT NOT NULL,
 	"date" DATE NOT NULL DEFAULT 'now()',
-	"addressId" TEXT NOT NULL,
+	"addressId" integer NOT NULL,
 	"userId" integer NOT NULL,
 	CONSTRAINT "purchases_pk" PRIMARY KEY ("id")
 ) WITH (
@@ -56,7 +56,7 @@ CREATE TABLE "public.address" (
 	"postalCode" TEXT NOT NULL,
 	"state" TEXT NOT NULL,
 	"city" TEXT NOT NULL,
-	"userId" TEXT NOT NULL,
+	"userId" integer NOT NULL,
 	CONSTRAINT "address_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
